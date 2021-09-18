@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Netflix | Parcial 2</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/search.css" />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/form.css" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Personaliza los Filtros</h3>
+            <br/>
+            <br/>
+            <div>
+                <p>Genero</p>
+                <select placeholder="Seleccionar..." id="ddlGenero">
+                    <option selected value="">Selecciona una Genero...</option>
+                </select>
+
+                <hr>
+                <br/>
+                <p>Año de estreno</p>
+                <input type="number" id="txtEstreno" placeholder="Escribe un Año..." />
+                <hr>
+                <br/>
+                <p>Clasificacion</p>
+                <!-- <input type="text" id="txtClasificacion" placeholder="Escribe una clasificacion..." /> -->
+                <select placeholder="Seleccionar..." id="ddlClasificacion">
+                    <option selected value="">Selecciona una clasificacion...</option>
+                    <option value="R">R</option>
+                    <option value="PG13">PG13</option>
+                </select>
+                <hr>
+                <br/>
+
+                <p>Contenido Adulto</p>
+                <select style="width:40%" placeholder="Seleccionar..." id="ddlContenidoAdulto">
+                    <option value="">NO</option>
+                    <option value="R">SI</option>
+                </select>
+            </div>
+
+            <br/>
+            <br/>
+            <button id="btnBuscarFiltro" style="padding-left: 50px; padding-right: 50px;" onclick="buscarPeliculasPorFiltro();" class="btn join-btn">Buscar...</button>
+        </div>
+    </div>
+
+    <!-- nav bar-->
+    <nav class="navbar">
+        <img src="img/logo.png" onclick="buscarPelicula('');" class="logo" alt="" />
+
+        <div class="join-box">
+            <div class="container-2">
+                <span class="icon"><i class="fa fa-search"></i></span>
+                <input type="search" id="search" onchange="buscarPelicula(this.value);" placeholder="Buscar..." />
+            </div>
+            <button class="btn" id="btnFiltros">Filtros</button>
+            <button class="btn" onclick="buscarSeriesTV();" id="btnFiltros">Series TV</button>
+            <button class="btn" onclick="buscarPeliculasCine();" id="btnFiltros">Cine</button>
+            <button class="btn" onclick="buscarMejoresPeliculasR();" id="btnFiltros">Mejores R</button>
+            <button class="btn join-btn">Suscribase hoy</button>
+            <button class="btn">Ingresar</button>
+        </div>
+    </nav>
+
+    <!-- SEccion principal-->
+    <header class="main">
+        <h1 class="heading">Peliculas</h1>
+        <p class="info">
+            Las mejores pelis de la Red, series y cosas para quitar el tiempo, todo esta aqui
+        </p>
+    </header>
+
+    <!-- se hacen la referncia a los JS en este orden -->
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/modal.js"></script>
+    <script src="js/jquery3.2.1.js"></script>
+</body>
+
+</html>
